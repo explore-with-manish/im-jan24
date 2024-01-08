@@ -131,11 +131,24 @@
 // export default HelloComponent;
 
 // --------------------------------------------- uSING gLOBAL css
+// const HelloComponent = () => (
+//     <>
+//         <h1 className="red">Hello World!</h1>
+//         <h1>Singleline Arrow Syntax!</h1>
+//     </>
+// );
+
 const HelloComponent = () => (
-    <>
+    <div className="container text-center">
         <h1 className="red">Hello World!</h1>
-        <h1>Singleline Arrow Syntax!</h1>
-    </>
+        <h1 className="text-primary">Singleline Arrow Syntax!</h1>
+        <h1 className="text-success">
+            Icons
+            <span className="bi bi-activity"></span>
+            <span className="bi bi-arrow-up-square-fill"></span>
+            <span className="bi bi-airplane-engines-fill"></span>    
+        </h1>
+    </div>
 );
 
 export default HelloComponent;
