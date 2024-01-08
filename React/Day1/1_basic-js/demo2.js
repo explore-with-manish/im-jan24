@@ -1,18 +1,32 @@
-var Person = (function () {
-    function Person(name) {
+// var Person = (function () {
+//     function Person(name) {
+//         this._name = name;
+//     }
+
+//     Person.prototype.getName = function () {
+//         return this._name;
+//     }
+
+//     Person.prototype.setName = function (name) {
+//         this._name = name;
+//     }
+
+//     return Person;
+// })();
+
+class Person {
+    constructor(name) {
         this._name = name;
     }
 
-    Person.prototype.getName = function () {
+    getName() {
         return this._name;
     }
 
-    Person.prototype.setName = function (name) {
+    setName(name) {
         this._name = name;
     }
-
-    return Person;
-})();
+}
 
 var p1 = new Person('jack');
 console.log(p1.getName());
