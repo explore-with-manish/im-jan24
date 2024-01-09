@@ -1,0 +1,13 @@
+When Component loads
+The + and - button will be enabled
+The reset button will be disabled
+
+Counter Will start with 0 and interval of 1, if interval props not given
+
+Click of + button will increase the counter by +interval
+Click of - button will decrease the counter by -interval
+
+On 10 total clicks on any, or both + and - buttons, 
+The + and - button should be disabled and reset button should be enabled. 
+
+When we click Reset button, everything should be re-initialized.
