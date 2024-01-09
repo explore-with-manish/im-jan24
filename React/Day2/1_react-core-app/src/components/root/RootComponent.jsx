@@ -17,6 +17,8 @@ import PropTypesRoot from '../8_prop-types/PropTypesComponent';
 import ComponentWithBehaviour from '../9_comp-methods/ComponentWithBehaviour';
 import EventComponent from '../10_synthetic-events/EventComponent';
 import CounterAssignment from '../11_assignment/CounterAssignment';
+import ControlledVsUncontrolledComponent from '../12_controlled-uncontrolled/ControlledVsUncontrolledComponent';
+import CalculatorAssignment from '../13_assignment/CalculatorAssignment';
 
 const RootComponent = () => {
     return (
@@ -33,7 +35,9 @@ const RootComponent = () => {
             {/* <PropTypesRoot /> */}
             {/* <ComponentWithBehaviour /> */}
             {/* <EventComponent /> */}
-            <CounterAssignment />
+            {/* <CounterAssignment /> */}
+            {/* <ControlledVsUncontrolledComponent /> */}
+            <CalculatorAssignment />
         </div>
     );
 };
