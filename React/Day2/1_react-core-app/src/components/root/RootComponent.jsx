@@ -14,6 +14,7 @@ import ComponentTwo from '../5_css-modules/comp-two/ComponentTwo';
 import ComponentWithState from '../6_comp-state/ComponentWithState';
 import ComponentWithProps from '../7_comp-props/ComponentWithProps';
 import PropTypesRoot from '../8_prop-types/PropTypesComponent';
+import ComponentWithBehaviour from '../9_comp-methods/ComponentWithBehaviour';
 
 const RootComponent = () => {
     return (
@@ -27,7 +28,8 @@ const RootComponent = () => {
                 address={{ city: 'Pune', state: 'MH' }}
                 display={() => { console.log("Hello from Root"); }} /> */}
 
-            <PropTypesRoot />
+            {/* <PropTypesRoot /> */}
+            <ComponentWithBehaviour />
         </div>
     );
 };

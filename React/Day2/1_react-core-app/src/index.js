@@ -74,3 +74,31 @@ root.render(
 );
 
 reportWebVitals();
+
+// function hello() {
+//   console.log(this);  
+// }
+
+// hello();
+
+// var obj = {
+//   id: 1,
+//   hello: function (a, b) {
+//     console.log(this);
+//   }
+// };
+
+// var p1 = {
+//   name: "Manish"
+// };
+
+// // obj.hello();
+
+// // setTimeout(obj.hello, 2000);
+
+// obj.hello();
+// obj.hello.call(p1, 10, 20);
+// obj.hello.apply(p1, [10, 20]);
+
+// var fn = obj.hello.bind(p1);
+// fn();
