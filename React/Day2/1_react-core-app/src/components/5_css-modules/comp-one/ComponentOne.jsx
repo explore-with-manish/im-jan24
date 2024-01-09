@@ -7,7 +7,7 @@ class ComponentOne extends Component {
         return (
             <>
                 <h1 className='text-success'>Hello from Component One</h1>
-                <h1 className='{classes.card}'>From Component One</h1>
+                <h1 className={classes.card}>From Component One</h1>
             </>
         );
     }
