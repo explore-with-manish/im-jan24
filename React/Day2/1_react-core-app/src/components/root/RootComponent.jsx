@@ -15,6 +15,7 @@ import ComponentWithState from '../6_comp-state/ComponentWithState';
 import ComponentWithProps from '../7_comp-props/ComponentWithProps';
 import PropTypesRoot from '../8_prop-types/PropTypesComponent';
 import ComponentWithBehaviour from '../9_comp-methods/ComponentWithBehaviour';
+import EventComponent from '../10_synthetic-events/EventComponent';
 
 const RootComponent = () => {
     return (
@@ -29,7 +30,8 @@ const RootComponent = () => {
                 display={() => { console.log("Hello from Root"); }} /> */}
 
             {/* <PropTypesRoot /> */}
-            <ComponentWithBehaviour />
+            {/* <ComponentWithBehaviour /> */}
+            <EventComponent />
         </div>
     );
 };
