@@ -75,6 +75,8 @@ root.render(
 
 reportWebVitals();
 
+
+// ---------------------------------- Context
 // function hello() {
 //   console.log(this);  
 // }
@@ -102,3 +104,26 @@ reportWebVitals();
 
 // var fn = obj.hello.bind(p1);
 // fn();
+
+// ------------------------------------ Misuse
+
+// class Person {
+//   constructor(name) {
+//     this._name = name;
+//   }
+
+//   getName = () => {
+//     return this._name;
+//   }
+
+//   setName = (value) => {
+//     this._name = value;
+//   }
+// }
+
+// var p1 = new Person("John");
+// console.log(p1.getName());
+// p1.setName("Abhijeet");
+// console.log(p1.getName());
+
+// console.log(p1);
