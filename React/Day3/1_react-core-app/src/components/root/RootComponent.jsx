@@ -5,6 +5,8 @@ import CounterAssignment from '../2_communication/CounterAssignment';
 import ListRoot from '../3_working-with-arrays/ListComponent';
 import TodoManager from '../4_todo-assignment/TodoManager';
 import WithoutContext from '../5_context-api/WithoutContext';
+import WithContext from '../5_context-api/WithContext';
+import MultiContext from '../5_context-api/MuliContext';
 
 const RootComponent = () => {
     return (
@@ -14,7 +16,9 @@ const RootComponent = () => {
             {/* <ListRoot /> */}
             {/* <TodoManager /> */}
 
-            <WithoutContext />
+            {/* <WithoutContext /> */}
+            {/* <WithContext /> */}
+            <MultiContext />
         </div>
     );
 };
