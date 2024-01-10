@@ -87,7 +87,7 @@ class CounterAssignment extends Component {
     constructor(props) {
         super(props);
         this.state = { message: "" };
-        this.counter = React.createRef();
+        this.c1 = React.createRef();
         this.handleReset = this.handleReset.bind(this);
         this.updateMessage = this.updateMessage.bind(this);
     }
@@ -100,14 +100,14 @@ class CounterAssignment extends Component {
     }
 
     handleReset() {
-        if (this.counter.current)
-            this.counter.current.reset();
+        if (this.c1.current)
+            this.c1.current.reset();
     }
 
     render() {
         return (
             // <div>
-            //     <Counter interval={10} ref={this.counter} />
+            //     <Counter interval={10} ref={this.c1} />
             //     <div className="d-grid gap-2 mx-auto col-6 mt-5">
             //         <button className="btn btn-warning" onClick={this.handleReset}>
             //             <span className='fs-4'>Parent Reset</span>
@@ -117,7 +117,7 @@ class CounterAssignment extends Component {
 
             <div>
                 {this.state.message && <h1 className='text-danger text-center'>{this.state.message}</h1>}
-                <Counter interval={10} ref={this.counter} onMax={this.updateMessage} />
+                <Counter interval={10} ref={this.c1} onMax={this.updateMessage} />
                 <div className="d-grid gap-2 mx-auto col-6 mt-5">
                     <button className="btn btn-warning" onClick={this.handleReset}>
                         <span className='fs-4'>Parent Reset</span>
