@@ -7,6 +7,7 @@ import TodoManager from '../4_todo-assignment/TodoManager';
 import WithoutContext from '../5_context-api/WithoutContext';
 import WithContext from '../5_context-api/WithContext';
 import MultiContext from '../5_context-api/MuliContext';
+import TodoManagerContext from '../6_todo-assignment-context/TodoManagerContext';
 
 const RootComponent = () => {
     return (
@@ -18,7 +19,8 @@ const RootComponent = () => {
 
             {/* <WithoutContext /> */}
             {/* <WithContext /> */}
-            <MultiContext />
+            {/* <MultiContext /> */}
+            <TodoManagerContext />
         </div>
     );
 };
