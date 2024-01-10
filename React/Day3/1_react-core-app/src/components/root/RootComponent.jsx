@@ -9,6 +9,7 @@ import WithContext from '../5_context-api/WithContext';
 import MultiContext from '../5_context-api/MuliContext';
 import TodoManagerContext from '../6_todo-assignment-context/TodoManagerContext';
 import ErrorHandler from '../common/ErrorHandler';
+import AjaxComponent from '../7_ajax/AjaxComponent';
 
 const RootComponent = () => {
     return (
@@ -22,7 +23,8 @@ const RootComponent = () => {
                 {/* <WithoutContext /> */}
                 {/* <WithContext /> */}
                 {/* <MultiContext /> */}
-                <TodoManagerContext />
+                {/* <TodoManagerContext /> */}
+                <AjaxComponent />
             </ErrorHandler>
         </div>
     );
