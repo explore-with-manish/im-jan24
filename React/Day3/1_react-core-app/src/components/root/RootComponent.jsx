@@ -4,6 +4,7 @@ import CalculatorAssignment from '../1_assignment/CalculatorAssignment';
 import CounterAssignment from '../2_communication/CounterAssignment';
 import ListRoot from '../3_working-with-arrays/ListComponent';
 import TodoManager from '../4_todo-assignment/TodoManager';
+import WithoutContext from '../5_context-api/WithoutContext';
 
 const RootComponent = () => {
     return (
@@ -11,7 +12,9 @@ const RootComponent = () => {
             {/* <CalculatorAssignment /> */}
             {/* <CounterAssignment /> */}
             {/* <ListRoot /> */}
-            <TodoManager />
+            {/* <TodoManager /> */}
+
+            <WithoutContext />
         </div>
     );
 };
