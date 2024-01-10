@@ -84,6 +84,7 @@
 // ----------------------------------------------------------
 import React, { Component } from 'react';
 import TodoContextProvider, { TodoContext } from './TodoContext';
+import DataTable from '../common/DataTable';
 
 const TodoList = () => {
     return (
@@ -93,9 +94,10 @@ const TodoList = () => {
                 <TodoContext.Consumer>
                     {
                         (obj) => (
-                            obj.todos.map((item, index) => {
-                                return <li key={item.id} className='list-group-item'>{item.description}</li>
-                            })
+                            // obj.todos.map((item, index) => {
+                            //     return <li key={item.id} className='list-group-item'>{item.description}</li>
+                            // })
+                            <DataTable />
                         )
                     }
                 </TodoContext.Consumer>

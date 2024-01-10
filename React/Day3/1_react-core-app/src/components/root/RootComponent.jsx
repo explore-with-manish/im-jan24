@@ -8,19 +8,22 @@ import WithoutContext from '../5_context-api/WithoutContext';
 import WithContext from '../5_context-api/WithContext';
 import MultiContext from '../5_context-api/MuliContext';
 import TodoManagerContext from '../6_todo-assignment-context/TodoManagerContext';
+import ErrorHandler from '../common/ErrorHandler';
 
 const RootComponent = () => {
     return (
         <div className='container'>
-            {/* <CalculatorAssignment /> */}
-            {/* <CounterAssignment /> */}
-            {/* <ListRoot /> */}
-            {/* <TodoManager /> */}
+            <ErrorHandler>
+                {/* <CalculatorAssignment /> */}
+                {/* <CounterAssignment /> */}
+                {/* <ListRoot /> */}
+                {/* <TodoManager /> */}
 
-            {/* <WithoutContext /> */}
-            {/* <WithContext /> */}
-            {/* <MultiContext /> */}
-            <TodoManagerContext />
+                {/* <WithoutContext /> */}
+                {/* <WithContext /> */}
+                {/* <MultiContext /> */}
+                <TodoManagerContext />
+            </ErrorHandler>
         </div>
     );
 };
