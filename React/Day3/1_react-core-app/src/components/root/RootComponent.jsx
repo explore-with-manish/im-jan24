@@ -10,8 +10,8 @@ const RootComponent = () => {
         <div className='container'>
             {/* <CalculatorAssignment /> */}
             {/* <CounterAssignment /> */}
-            <ListRoot />
-            {/* <TodoManager /> */}
+            {/* <ListRoot /> */}
+            <TodoManager />
         </div>
     );
 };
