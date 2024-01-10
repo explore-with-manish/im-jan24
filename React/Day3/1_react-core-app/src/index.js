@@ -1,0 +1,129 @@
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap-icons/font/bootstrap-icons.css';
+// import './index.css';
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import 'bootstrap';
+
+// import reportWebVitals from './reportWebVitals';
+// import ComponentOne from './components/2_multi-components/ComponentOne';
+// import ComponentTwo from './components/2_multi-components/ComponentTwo';
+
+// // const root = ReactDOM.createRoot(document.getElementById('root'));
+// // root.render(
+// //   <React.StrictMode>
+// //     <ComponentOne />
+// //     <ComponentTwo />
+// //   </React.StrictMode>
+// // );
+
+// const root1 = ReactDOM.createRoot(document.getElementById('root1'));
+// root1.render(
+//   <React.StrictMode>
+//     <ComponentOne />
+//   </React.StrictMode>
+// );
+
+// const root2 = ReactDOM.createRoot(document.getElementById('root2'));
+// root2.render(
+//   <React.StrictMode>
+//     <ComponentTwo />
+//   </React.StrictMode>
+// );
+
+// reportWebVitals();
+
+// // class Identity {}
+
+// // class Employee {
+// //   constructor() {
+// //     this.Id = new Identity();
+// //   }
+// // }
+
+// // class Project {
+// //   constructor(e) {
+// //     this.emp = e;
+// //   }
+// // }
+
+// // var e = new Employee();
+
+// // var p = new Project(e);
+// // p = null;
+
+// ---------------------------------- Using One Root Component
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './index.css';
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import 'bootstrap';
+
+import reportWebVitals from './reportWebVitals';
+import RootComponent from './components/root/RootComponent';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <RootComponent />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+
+
+// ---------------------------------- Context
+// function hello() {
+//   console.log(this);  
+// }
+
+// hello();
+
+// var obj = {
+//   id: 1,
+//   hello: function (a, b) {
+//     console.log(this);
+//   }
+// };
+
+// var p1 = {
+//   name: "Manish"
+// };
+
+// // obj.hello();
+
+// // setTimeout(obj.hello, 2000);
+
+// obj.hello();
+// obj.hello.call(p1, 10, 20);
+// obj.hello.apply(p1, [10, 20]);
+
+// var fn = obj.hello.bind(p1);
+// fn();
+
+// ------------------------------------ Misuse
+
+// class Person {
+//   constructor(name) {
+//     this._name = name;
+//   }
+
+//   getName = () => {
+//     return this._name;
+//   }
+
+//   setName = (value) => {
+//     this._name = value;
+//   }
+// }
+
+// var p1 = new Person("John");
+// console.log(p1.getName());
+// p1.setName("Abhijeet");
+// console.log(p1.getName());
+
+// console.log(p1);
