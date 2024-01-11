@@ -1,78 +1,64 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-class Counter extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            flag: false,
-            count: 0
-        };
+const Counter = (props) => {
+    console.log("Counter Executed...");
 
-        this.clickCount = 0;
-    }
+    const [count, setCount] = useState(0);
+    const [flag, setFlag] = useState(false);
 
-    manageClickCount() {
-        this.clickCount++;
-        if (this.clickCount > 9) {
-            this.setState({ flag: true });
+    let clickCount = useRef(0);
+    let isInitialMount = useRef(true);
+
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            return;
+        } else {
+            clickCount.current += 1;
+            if (clickCount.current > 9) {
+                setFlag(true);
+            }
         }
-    }
+    }, [count]);
 
-    inc() {
-        this.setState({ count: this.state.count + this.props.interval }, () => {
-            this.manageClickCount();
-        });
-    }
+    const reset = (e) => {
+        clickCount.current = 0;
+        setCount(0);
+        setFlag(false);
+    };
 
-    dec() {
-        this.setState({ count: this.state.count - this.props.interval }, () => {
-            this.manageClickCount();
-        });
-    }
-
-    render() {
-        return (
-            <>
-                <div className="text-center">
-                    <h3 className="text-info">Counter Component</h3>
-                </div>
-                <div className="d-grid gap-2 mx-auto col-6">
-                    <input type="text" className="form-control form-control-lg" value={this.state.count} readOnly />
-                    <button className="btn btn-info" disabled={this.state.flag}
-                        onClick={this.inc.bind(this)}>
-                        <span className='fs-4'>+</span>
-                    </button>
-                    <button className="btn btn-info" disabled={this.state.flag}
-                        onClick={this.dec.bind(this)}>
-                        <span className='fs-4'>-</span>
-                    </button>
-                    <button className="btn btn-secondary" disabled={!this.state.flag}
-                        onClick={this.reset.bind(this)}>
-                        <span className='fs-4'>Reset</span>
-                    </button>
-                </div>
-            </>
-        );
-    }
-
-    static get defaultProps() {
-        return {
-            interval: 1
-        };
-    }
-
-    static get propTypes() {
-        return {
-            interval: PropTypes.number
-        };
-    }
-
-    reset() {
-        this.clickCount = 0;
-        this.setState({ count: 0, flag: false });
-    }
+    return (
+        <>
+            <div className="text-center">
+                <h3 className="text-info">Counter Component</h3>
+            </div>
+            <div className="d-grid gap-2 mx-auto col-6">
+                <input type="text" className="form-control form-control-lg" value={count} readOnly />
+                <button className="btn btn-info" disabled={flag}
+                    onClick={() => { setCount(count + props.interval) }}>
+                    <span className='fs-4'>+</span>
+                </button>
+                <button className="btn btn-info" disabled={flag}
+                    onClick={() => { setCount(count - props.interval) }}>
+                    <span className='fs-4'>-</span>
+                </button>
+                <button className="btn btn-secondary" disabled={!flag}
+                    onClick={(e) => { reset(e); }}>
+                    <span className='fs-4'>Reset</span>
+                </button>
+            </div>
+        </>
+    );
 }
+
+Counter.defaultProps = {
+    interval: 1
+};
+
+Counter.propTypes = {
+    interval: PropTypes.number
+};
 
 const CounterAssignment = () => {
     return (
