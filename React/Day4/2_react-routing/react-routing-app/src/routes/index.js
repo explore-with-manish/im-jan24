@@ -2,11 +2,50 @@ import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import HomeComponent from "../components/home/HomeComponent";
 import AboutComponent from "../components/about/AboutComponent";
+import ProductsComponent from "../components/products/ProductsComponent";
+import AdminComponent from "../components/admin/AdminComponent";
+import LoginComponent from "../components/login/LoginComponent";
+import ProductDetailsComponent from "../components/products/ProductDetailsComponent";
+import ProductNotSelectedComponent from "../components/products/ProductNotSelectedComponent";
+
+const productsData = [
+    {
+        id: 1,
+        name: "Item One",
+        description:
+            "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        status: "Available"
+    },
+    {
+        id: 2,
+        name: "Item Two",
+        description: "sunt aut facere ptio reprehenderit",
+        status: "Not Available"
+    },
+    {
+        id: 3,
+        name: "Item Three",
+        description: "provident occaecati excepturi optio reprehenderit",
+        status: "Available"
+    },
+    {
+        id: 4,
+        name: "Item Four",
+        description: "reprehenderit",
+        status: "Not Available"
+    }
+];
 
 export default (
     <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/about" element={<AboutComponent />} />
+        <Route path="/products" element={<ProductsComponent productsData={productsData} />}>
+            <Route path="" element={<ProductNotSelectedComponent />} />
+            <Route path=":productId" element={<ProductDetailsComponent data={productsData} />} />
+        </Route>
+        <Route path="/admin" element={<AdminComponent />} />
+        <Route path="/login" element={<LoginComponent />} />
         <Route path="*" element={<NoMatch />} />
     </Routes>
 );

@@ -1,0 +1,7 @@
+.graybox {
+    float: left;
+    padding: 10px;
+    width: 80%;
+    background: grey;
+    margin-left: auto;
+}
