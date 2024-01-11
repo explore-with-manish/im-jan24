@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Item One",
+      "description": "Super Widget",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "name": "Item Two",
+      "description": "Gadget",
+      "status": "Available"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "User One",
+      "email": "user1@abc.com"
+    },
+    {
+      "id": 2,
+      "username": "User Two",
+      "email": "user2@abc.com"
+    }
+  ]
+}
