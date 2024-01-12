@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Item One",
+      "description": "Gadget",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "name": "Item Two",
+      "description": "Super Widget",
+      "status": "Not Available"
+    }
+  ]
+}
