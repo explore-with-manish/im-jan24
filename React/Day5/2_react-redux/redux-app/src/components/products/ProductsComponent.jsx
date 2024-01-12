@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../features/products/productSlice';
 import ProductListComponent from './ProductListComponent';
+import AddProductButton from './AddProductButton';
 
 const ProductsComponent = () => {
     const dispatch = useDispatch();
@@ -26,8 +27,9 @@ const ProductsComponent = () => {
         return (
             <>
                 <div className="mt-5 mb-3">
-                    <ProductListComponent products={products} />
+                    <AddProductButton />
                 </div>
+                <ProductListComponent products={products} />
             </>
         );
     }

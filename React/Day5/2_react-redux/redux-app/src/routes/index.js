@@ -2,11 +2,12 @@ import { lazy, Suspense } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import LoaderAnimation from '../components/common/LoaderAnimation';
-import ProductsComponent from "../components/products/ProductsComponent";
 
 const HomeComponent = lazy(() => import("../components/home/HomeComponent"));
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
 const CounterComponent = lazy(() => import("../components/counter/CounterComponent"));
+const ProductsComponent = lazy(() => import("../components/products/ProductsComponent"));
+const ManageProductComponent = lazy(() => import("../components/products/ManageProductComponent"));
 
 export default (
     <Suspense fallback={<LoaderAnimation />}>
@@ -15,6 +16,8 @@ export default (
             <Route path="/about" element={<AboutComponent />} />
             <Route path="/counter" element={<CounterComponent />} />
             <Route path="/products" element={<ProductsComponent />} />
+            <Route path="/product/:id" element={<ManageProductComponent />} />
+            <Route path="/product" element={<ManageProductComponent />} />
             <Route path="*" element={<NoMatch />} />
         </Routes>
     </Suspense>
