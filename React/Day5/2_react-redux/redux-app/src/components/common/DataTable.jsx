@@ -14,35 +14,15 @@ const Th = ({ item }) => {
     );
 }
 
-const Tr = ({ item, onSelect, onDelete }) => {
+const Tr = ({ item }) => {
     var allValues = Object.values(item).concat(
-        <a href='/#' className='text-primary' onClick={
-            (e) => {
-                e.preventDefault();
-                if (onSelect)
-                    onSelect(item, false);
-            }
-        }>Details</a>,
-        <a href='/#' className='text-warning' onClick={
-            (e) => {
-                e.preventDefault();
-                if (onSelect)
-                    onSelect(item, true);
-            }
-        }>Edit</a>,
-        <a href="/#" className='text-danger' onClick={
-            (e) => {
-                e.preventDefault();
-                if (onDelete)
-                    if (window.confirm('Are you, you want to delete the record?')) {
-                        onDelete(item.id);
-                    }
-            }
-        }>Delete</a>
+        <a href="/#" className='text-primary'>Details</a>,
+        <a href="/#" className='text-warning'>Edit</a>,
+        <a href="/#" className='text-danger'>Delete</a>,
     );
 
-    var tds = allValues.map((item, index) => {
-        return <td key={index}>{item}</td>
+    var tds = allValues.map((value, index) => {
+        return <td key={index}>{value}</td>
     });
 
     return (
@@ -52,17 +32,18 @@ const Tr = ({ item, onSelect, onDelete }) => {
     );
 }
 
-const DataTable = ({ items, children, onSelect, onDelete }) => {
+const DataTable = ({ items, children }) => {
     if (items && items.length) {
         var [item] = items;
         var headers = <Th item={item} />;
-        var trs = items.map((item, index) => {
-            return <Tr item={item} key={item.id} onSelect={onSelect} onDelete={onDelete} />
+        var trs = items.map((item, index)=>{
+            return <Tr key={index} item={item} />
         });
     }
     return (
         <>
             {children && children}
+            <hr />
             <table className='table table-striped'>
                 <thead>
                     {headers}
