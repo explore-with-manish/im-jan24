@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import LoaderAnimation from '../components/common/LoaderAnimation';
+import ProductsComponent from "../components/products/ProductsComponent";
 
 const HomeComponent = lazy(() => import("../components/home/HomeComponent"));
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
@@ -13,6 +14,7 @@ export default (
             <Route path="/" element={<HomeComponent />} />
             <Route path="/about" element={<AboutComponent />} />
             <Route path="/counter" element={<CounterComponent />} />
+            <Route path="/products" element={<ProductsComponent />} />
             <Route path="*" element={<NoMatch />} />
         </Routes>
     </Suspense>
