@@ -1,7 +1,9 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ConfirmModal from '../common/ConfirmModal';
 
-const ProductListComponent = ({products}) => {
+const ProductListComponent = ({ products, onDelete }) => {
     return (
         <table className="table table-hover">
             <thead>
@@ -17,14 +19,16 @@ const ProductListComponent = ({products}) => {
             <tbody>
                 {
                     products.map(product => <ProductListRow key={product.id}
-                        product={product} />)
+                        product={product} onDelete={onDelete}/>)
                 }
             </tbody>
         </table>
     );
 };
 
-const ProductListRow = ({product}) => {
+const ProductListRow = ({ product, onDelete }) => {
+    const [show, setShow] = useState(false);
+
     return (
         <>
             <tr key={product.id}>
@@ -36,9 +40,22 @@ const ProductListRow = ({product}) => {
                     <Link className="text-info" to={"/product/" + product.id}>Edit</Link>
                 </td>
                 <td>
-                    <Link className="text-danger" to={"/product/" + product.id}>Delete</Link>
+                    <Link className="text-danger" to={"/product/" + product.id} onClick={
+                        (e) => {
+                            e.preventDefault();
+                            setShow(true);
+                        }
+                    }>Delete</Link>
                 </td>
             </tr>
+            <ConfirmModal show={show} title={"Confirm Delete Product"}
+                message={"Are you sure you want to delete this product?"}
+                handleYes={() => {
+                    onDelete(product.id);
+                    setShow(false);
+                }} handleNo={() => {
+                    setShow(false);
+                }} />
         </>
     );
 }

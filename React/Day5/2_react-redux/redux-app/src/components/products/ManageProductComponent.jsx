@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProductFormComponent from './ProductFormComponent';
+import { insertProduct, updateProduct } from '../../features/products/productSlice';
 
 const ManageProductComponent = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,17 @@ const ManageProductComponent = () => {
 
     const saveProduct = async (e) => {
         e.preventDefault();
+
+        try {
+            if(product.id) {
+                await dispatch(updateProduct(product)).unwrap();
+            } else {
+                await dispatch(insertProduct(product)).unwrap();
+            }
+            navigate('/products');
+        } catch(error) {
+            console.error('Failed to save product:', error);
+        }
     }
 
     const updateState = (e) => {

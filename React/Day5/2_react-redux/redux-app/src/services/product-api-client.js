@@ -66,8 +66,8 @@ const productAPIClient = {
         return promise;
     },
 
-    deleteProduct: function (p) {
-        const request = new Request(url + "/" + p.id, {
+    deleteProduct: function (productId) {
+        const request = new Request(url + "/" + productId, {
             method: 'DELETE'
         });
 

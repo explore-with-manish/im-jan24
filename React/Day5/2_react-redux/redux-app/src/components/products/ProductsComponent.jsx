@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../features/products/productSlice';
+import { deleteProduct, fetchProducts } from '../../features/products/productSlice';
 import ProductListComponent from './ProductListComponent';
 import AddProductButton from './AddProductButton';
 
@@ -17,6 +17,10 @@ const ProductsComponent = () => {
         }
     }, [dispatch, status]);
 
+    const handleDeleteProduct = (productId) => {
+        dispatch(deleteProduct(productId));
+    }
+
     if (error) {
         return (
             <div className="alert alert-danger" role="alert">
@@ -29,7 +33,7 @@ const ProductsComponent = () => {
                 <div className="mt-5 mb-3">
                     <AddProductButton />
                 </div>
-                <ProductListComponent products={products} />
+                <ProductListComponent products={products} onDelete={handleDeleteProduct} />
             </>
         );
     }
