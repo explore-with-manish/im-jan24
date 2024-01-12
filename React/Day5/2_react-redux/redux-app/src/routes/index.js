@@ -5,12 +5,14 @@ import LoaderAnimation from '../components/common/LoaderAnimation';
 
 const HomeComponent = lazy(() => import("../components/home/HomeComponent"));
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
+const CounterComponent = lazy(() => import("../components/counter/CounterComponent"));
 
 export default (
     <Suspense fallback={<LoaderAnimation />}>
         <Routes>
             <Route path="/" element={<HomeComponent />} />
             <Route path="/about" element={<AboutComponent />} />
+            <Route path="/counter" element={<CounterComponent />} />
             <Route path="*" element={<NoMatch />} />
         </Routes>
     </Suspense>
