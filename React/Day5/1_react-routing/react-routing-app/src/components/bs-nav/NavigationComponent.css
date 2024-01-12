@@ -1,0 +1,17 @@
+body {
+    margin-top: 100px;
+}
+
+nav li a:hover {
+    font-weight: bold;
+    background-color: indianred;
+    cursor: pointer;
+}
+
+nav li a.active {
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: yellowgreen;
+    cursor: pointer;
+}
