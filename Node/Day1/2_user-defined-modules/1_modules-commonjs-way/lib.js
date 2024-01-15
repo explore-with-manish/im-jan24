@@ -24,14 +24,29 @@
 // }
 
 // ------------------------- Named Exports - Shorter Syntax
-// var fname = "Manish";
-// var lname = "Sharma";
+var fname = "Manish";
+var lname = "Sharma";
 
-// exports.firstname = fname;
-// exports.lastname = lname;
+exports.firstname = fname;
+exports.lastname = lname;
 
-// exports.hello = function (message) {
-//     return `From Lib - ${message.toUpperCase()}`;
-// }
+exports.hello = function (message) {
+    return `From Lib - ${message.toUpperCase()}`;
+}
 
 // --------- Create and Export Employee Class
+class Employee {
+    constructor(name) {
+        this._name = name;
+    }
+
+    getName() {
+        return this._name;
+    }
+
+    setName(name) {
+        this._name = name;
+    }
+}
+
+exports.Employee = Employee;
