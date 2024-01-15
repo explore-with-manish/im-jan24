@@ -34,8 +34,8 @@
 
 const loggerFactory = require('./loggerFactory');
 
-let dbLogger;
-let flLogger;
+let dbLogger = loggerFactory.DBLFactory.getLogger();
+let flLogger = loggerFactory.FLFactory.getLogger();
 
 dbLogger.log('Hello from App Module');
 flLogger.log('Hello from App Module');
