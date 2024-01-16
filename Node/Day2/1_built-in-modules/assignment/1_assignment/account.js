@@ -1,4 +1,6 @@
-class Account {
+const EventEmitter = require('events');
+
+class Account extends EventEmitter {
     constructor(accNumber = 0, balance = 0, intRate = 0, date = new Date()) {
         super();
         this._accNumber = accNumber;
@@ -25,12 +27,15 @@ class Account {
 
     deposit(amount) {
         this._balance += amount;
+        this.emit('depositSuccess', this._balance);
     }
 
     withdraw(amount) {
         if (this._balance >= amount) {
             this._balance -= amount;
+            this.emit('withdrawSuccess', this._balance);
         } else {
+            this.emit('withdrawFailure', this._balance);
         }
     }
 

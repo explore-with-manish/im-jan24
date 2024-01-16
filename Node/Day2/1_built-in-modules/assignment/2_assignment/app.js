@@ -8,7 +8,28 @@ const http = require('http');
 const fs = require('fs');
 
 var server = http.createServer((request, response) => {
+    if(request.url !== '/favicon.ico') {
+        const filePath = `${__dirname}${request.url}.pdf`;
+        const readStream = fs.createReadStream(filePath);
 
+        response.setHeader('content-type', 'application/pdf');
+
+        readStream.pipe(response);
+
+        // readStream.on('data', (chunk)=>{
+        //     response.write(chunk);
+        // });
+
+        // readStream.on('end', ()=>{
+        //     response.end();
+        // });
+
+        readStream.on('error', (err)=>{
+            response.setHeader('content-type', 'text/plain');
+            response.statusCode = 404;
+            response.end('File not found');
+        });
+    }
 });
 
 server.listen(3000);
