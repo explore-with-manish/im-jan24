@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <title>WebSocket Client</title>
+</head>
+
+<body class="container">
+    <h2 class="text-info">WebSocket Demo</h2>
+    <div class="row">
+        <div class="col-sm-2">
+            <input class="btn btn-primary btn-block" type="button" id="btnsend" value="Send Message">
+        </div>
+        <div class="col-sm-2">
+            <input class="btn btn-danger btn-block" type="button" id="btnclose" value="Close Connection">
+        </div>
+    </div>
+    <br />
+    <br />
+    <div id="conversation" class="row"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        var ws;
+
+        function createSpan(text) {
+            var span = document.createElement('span');
+            span.innerHTML = "<br/>" + text;
+            return span;
+        }
+
+        window.onload = function () {
+            $("#btnclose").click(function () {
+                ws.close();
+            });
+
+            $("#btnsend").click(function () {
+                ws.send("Hello");
+            });
+
+            var url = "ws://localhost:3000";
+            ws = new WebSocket(url, 'echo-protocol');
+
+            var con = $("#conversation");
+
+            ws.onopen = function () {
+                con.html("Client Connected...");
+            }
+
+            ws.onclose = function () {
+                con.html("Client Disconnected...");
+            }
+
+            ws.onmessage = function (e) {
+                con.append(createSpan(e.data.toString()));
+            }
+        }
+    </script>
+</body>
+
+</html>

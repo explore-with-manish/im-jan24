@@ -1,0 +1,12 @@
+{
+  "name": "folder-watcher",
+  "version": "1.0.0",
+  "description": "Learning NPM Install",
+  "main": "app.js",
+  "private": "true",
+  "author": "Manish",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "3.5.3"
+  }
+}
