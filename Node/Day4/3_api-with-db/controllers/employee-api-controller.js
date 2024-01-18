@@ -1,77 +1,55 @@
 const da = require('../data-access');
+const { EmployeeDTO } = require('../dtos/employee-dto');
 
 exports.getAll = (request, response) => {
-    da.getEmployees().then(employees => {
-        response.status(200).json({data: employees, message: "Success"});
+    da.getEmployees().then(result => {
+        var employees = result.map(r => new EmployeeDTO(r._id, r.id, r.name));
+        response.status(200).json({ data: employees, message: "Success" });
     }).catch(eMsg => {
-        response.status(500).json({data: [], message: eMsg});
+        response.status(500).json({ data: [], message: eMsg });
     });
 };
 
-// exports.getDetails = (request, response) => {
-//     var recordId = request.params.recordId;
+exports.get = (request, response) => {
+    var recordId = request.params.recordId;
 
-//     da.getEmployee(recordId).then(employee => {
-//         response.render('employees/details', { pageTitle: 'Employee Details View', employee: employee, message: "" });
-//     }).catch(eMsg => {
-//         response.render('employees/details', { pageTitle: 'Employee Details View', employee: {}, message: eMsg });
-//     });
-// };
+    da.getEmployee(recordId).then(employee => {
+        response.status(200).json({ data: employee, message: "Success, getting Employee" });
+    }).catch(eMsg => {
+        response.status(500).json({ data: null, message: "Error, getting Employee" });
+    });
+};
 
-// exports.getCreateEmployee = (request, response) => {
-//     response.render('employees/create', { pageTitle: 'Create Employee View', employee: {}, message: "" });
-// };
+exports.create = (request, response) => {
+    var { id, name } = request.body;
+    var employee = { id: parseInt(id), name: name };
 
-// exports.postCreateEmployee = (request, response) => {
-//     var { eid, ename } = request.body;
-//     var employee = {id: parseInt(eid), name: ename};
+    da.insertEmployee(employee).then(employee => {
+        response.status(201).json({ data: employee, message: "Success, creating Employee" });
+    }).catch(eMsg => {
+        response.status(500).json({ data: null, message: "Error, creating Employee" });
+    });
+};
 
-//     da.insertEmployee(employee).then(employee => {
-//         response.redirect('/employees');
-//     }).catch(eMsg => {
-//         response.render('employees/create', { pageTitle: 'Create Employee View', employee: employee, message: eMsg });
-//     });
-// };
+exports.update = (request, response) => {
+    var recordId = request.params.recordId;
 
-// exports.getEditEmployee = (request, response) => {
-//     var recordId = request.params.recordId;
+    var { id, name } = request.body;
+    var employee = { id: parseInt(id), name: name };
 
-//     da.getEmployee(recordId).then(employee => {
-//         response.render('employees/edit', { pageTitle: 'Employee Edit View', employee: employee, message: "" });
-//     }).catch(eMsg => {
-//         response.render('employees/edit', { pageTitle: 'Employee Edit View', employee: {}, message: eMsg });
-//     });
-// };
+    da.updateEmployee(recordId, employee).then(employee => {
+        response.status(200).json({ data: employee, message: "Success, updating Employee" });
+    }, eMsg => {
+        response.status(500).json({ data: employee, message: "Error, updating Employee" });
+    });
+};
 
-// exports.postEditEmployee = (request, response) => {
-//     var recordId = request.params.recordId;
+exports.delete = (request, response) => {
+    var recordId = request.params.recordId;
 
-//     var { eid, ename } = request.body;
-//     var employee = {id: parseInt(eid), name: ename};
-
-//     da.updateEmployee(recordId, employee).then(employee => {
-//         response.redirect('/employees');
-//     }, eMsg => {
-//         response.render("employees/edit", { pageTitle: "Edit Employee View", employee: employee, message: eMsg });
-//     });
-// };
-
-// exports.getDeleteEmployee = (request, response) => {
-//     var recordId = request.params.recordId;
-
-//     da.getEmployee(recordId).then(employee => {
-//         response.render("employees/delete", { pageTitle: "Employee Delete View", employee: employee, message: "" });
-//     }).catch(eMsg => {
-//         response.render("employees/delete", { pageTitle: "Employee Delete View", employee: {}, message: eMsg });
-//     });
-// };
-
-// exports.postDeleteEmployee = (request, response) => {
-//     var recordId = request.params.recordId;
-
-//     da.deleteEmployee(recordId).then(employee => {
-//         response.redirect('/employees');
-//     }).catch(eMsg => {
-//         response.render("employees/delete", { pageTitle: "Employee Delete View", employee: {}, message: eMsg });
-//     });
-// };
+    da.deleteEmployee(recordId).then(employee => {
+        response.status(200).json({ data: recordId, message: "Success, deleting Employee" });
+    }).catch(eMsg => {
+        response.status(500).json({ data: recordId, message: "Error, deleting Employee" });
+    });
+};

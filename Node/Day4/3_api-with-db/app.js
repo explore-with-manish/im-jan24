@@ -21,11 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + "/public/images/favicon.png"));
 
 const indexRouter = require('./routes/index');
-const employeeRouter = require('./routes/employee');
 const employeeApiRouter = require('./routes/employee-api');
 
 app.use('/', indexRouter);
-app.use('/employees', employeeRouter);
 app.use('/api/employees', employeeApiRouter);
 
 // catch 404 and forward to error handler
