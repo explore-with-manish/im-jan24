@@ -53,7 +53,7 @@ class AjaxComponent extends Component {
 
         try {
             var result = await postApiClient.getAllPostsAsync();
-            this.setState({ posts: result, message: "", flag: true });
+            this.setState({ posts: result.data, message: "", flag: true });
         } catch (eMsg) {
             this.setState({ posts: [], message: eMsg, flag: true });
         }

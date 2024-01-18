@@ -10,10 +10,10 @@ const RootComponent = () => {
     return (
         <div className='container'>
             <ErrorHandler>
-                {/* <AjaxComponent /> */}
+                <AjaxComponent />
                 {/* <UserComponent /> */}
                 {/* <FunctionVsClassSyntax /> */}
-                <HooksRoot />
+                {/* <HooksRoot /> */}
             </ErrorHandler>
         </div>
     );
