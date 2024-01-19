@@ -8,7 +8,7 @@ html(lang='en')
         title= pageTitle 
     body.container
         .jumbotron
-            h2= pageTitle
+            h2= pageTitle || 'Error Page'
 
         block pagecontent
 

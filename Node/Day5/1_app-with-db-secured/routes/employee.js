@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const employeeController = require('../controllers/employee-controller');
+const { isAuthenticated } = require('../controllers/account-controller');
+
+router.use(isAuthenticated);
 
 router.get('/', employeeController.getIndex);
 
