@@ -1,0 +1,21 @@
+RDBMS					NO SQL
+
+Database				Database
+
+Tables					Collections
+
+Rows					Documents
+
+Columns					Fields
+
+Join					Embeded Documents
+
+SQL					MongoDB API's
+
+Database Package			Database Package
+
+ORM - EF, Hibernate			ODM - Mongoose
+
+Background Service	 		Background Service
+
+SQLLite/SSMS				Compass
