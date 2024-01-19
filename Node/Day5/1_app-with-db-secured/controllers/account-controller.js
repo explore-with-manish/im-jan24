@@ -8,3 +8,11 @@ exports.isAuthenticated = function (request, response, next) {
         response.redirect('/account');
     }
 }
+
+exports.getLogin = function (request, response, next) {
+    response.render('account/login', { pageTitle: 'Login View', message: '' });
+}
+
+exports.postLogin = function (request, response, next) { 
+    response.end();
+}

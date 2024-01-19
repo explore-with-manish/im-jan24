@@ -7,8 +7,8 @@ router.get('/', function (request, response, next) {
     response.redirect('account/login');
 });
 
-router.get('/login', function (request, response, next) { 
-    response.end();
-});
+router.get('/login', accountController.getLogin);
+
+router.post('/login', accountController.postLogin);
 
 module.exports = router;
