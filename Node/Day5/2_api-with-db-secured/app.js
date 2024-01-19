@@ -22,8 +22,10 @@ app.use(favicon(__dirname + "/public/images/favicon.png"));
 
 const indexRouter = require('./routes/index');
 const employeeApiRouter = require('./routes/employee-api');
+const accountRouter = require('./routes/account');
 
 app.use('/', indexRouter);
+app.use('/account', accountRouter);
 app.use('/api/employees', employeeApiRouter);
 
 // catch 404 and forward to error handler
