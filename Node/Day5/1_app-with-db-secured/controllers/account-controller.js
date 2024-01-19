@@ -10,9 +10,12 @@ exports.isAuthenticated = function (request, response, next) {
 }
 
 exports.getLogin = function (request, response, next) {
-    response.render('account/login', { pageTitle: 'Login View', message: '' });
+    response.render('account/login', { pageTitle: 'Login View', message: request.flash('loginMessage') });
 }
 
-exports.postLogin = function (request, response, next) { 
-    response.end();
+exports.postLogin = function (passport) {
+    return passport.authenticate('local-login', {
+        successRedirect: '/',
+        failureRedirect: '/account/login'
+    });
 }

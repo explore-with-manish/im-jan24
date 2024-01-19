@@ -12,6 +12,11 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+// const configure = require('./config/passport-config');
+// configure(passport);
+
+require('./config/passport-config')(passport);
+
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +36,7 @@ app.use(flash());
 
 const indexRouter = require('./routes/index');
 const employeeRouter = require('./routes/employee');
-const accountRouter = require('./routes/account');
+const accountRouter = require('./routes/account')(passport);
 
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
